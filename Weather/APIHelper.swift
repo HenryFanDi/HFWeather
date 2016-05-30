@@ -40,12 +40,13 @@ class APIHelper: NSObject {
 
   func fetchAPIDataWithAPIType(apiType: APIType, parameters: AnyObject?, completionHandler: APIHelperCompletionHandler) {
     var URLString = ""
+    let appID = "d353523e01169c4d061044c327a77ecb"
     let request = NSMutableURLRequest()
     switch apiType {
     case .WeatherAPI:
       let latitude = (parameters as! Dictionary <String, String>)["latitude"]! as String
       let longitude = (parameters as! Dictionary <String, String>)["longitude"]! as String
-      URLString = "http://api.openweathermap.org/data/2.5/weather?lat=\(latitude)&lon=\(longitude)"
+      URLString = "http://api.openweathermap.org/data/2.5/weather?lat=\(latitude)&lon=\(longitude)&APPID=\(appID)"
       break
     }
     request.URL = NSURL(string: URLString)

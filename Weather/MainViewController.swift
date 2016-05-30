@@ -32,13 +32,18 @@ class MainViewController: UIViewController, CLLocationManagerDelegate {
     locationManager.desiredAccuracy = kCLLocationAccuracyBest
     locationManager.requestAlwaysAuthorization()
     locationManager.startUpdatingLocation()
-    
-    if let userLocation = locationManager.location as CLLocation? {
-      print(userLocation)
-    }
   }
   
   private func fetchWeatherAPI() {
+    if let userLocation = locationManager.location as CLLocation? {
+      let parameters = [
+        "latitude": String(format: "%f", userLocation.coordinate.latitude),
+        "longitude": String(format: "%f", userLocation.coordinate.longitude)
+      ]
+      APIHelper.sharedInstance.fetchAPIDataWithAPIType(.WeatherAPI, parameters: parameters) { (result, statusCode, error) in
+        print(result)
+      }
+    }
   }
   
 }
