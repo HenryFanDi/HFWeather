@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		D80E689D1CFC1CC700326A4C /* APIHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = D80E689C1CFC1CC700326A4C /* APIHelper.swift */; };
 		D83AD9FE1CEDCBE900373AA5 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D83AD9FD1CEDCBE900373AA5 /* AppDelegate.swift */; };
 		D83ADA061CEDCBEA00373AA5 /* Weather.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = D83ADA041CEDCBEA00373AA5 /* Weather.xcdatamodeld */; };
 		D83ADA081CEDCBEA00373AA5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D83ADA071CEDCBEA00373AA5 /* Assets.xcassets */; };
@@ -35,6 +36,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		D80E689C1CFC1CC700326A4C /* APIHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = APIHelper.swift; sourceTree = "<group>"; };
 		D83AD9FA1CEDCBE900373AA5 /* Weather.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Weather.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D83AD9FD1CEDCBE900373AA5 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D83ADA051CEDCBEA00373AA5 /* Weather.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Weather.xcdatamodel; sourceTree = "<group>"; };
@@ -100,6 +102,7 @@
 			isa = PBXGroup;
 			children = (
 				D83AD9FD1CEDCBE900373AA5 /* AppDelegate.swift */,
+				D80E689C1CFC1CC700326A4C /* APIHelper.swift */,
 				D8832A691CEDCDE0007B669A /* MainViewController.swift */,
 				D8832A6A1CEDCDE0007B669A /* MainViewController.xib */,
 				D83ADA071CEDCBEA00373AA5 /* Assets.xcassets */,
@@ -259,6 +262,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D80E689D1CFC1CC700326A4C /* APIHelper.swift in Sources */,
 				D83ADA061CEDCBEA00373AA5 /* Weather.xcdatamodeld in Sources */,
 				D83AD9FE1CEDCBE900373AA5 /* AppDelegate.swift in Sources */,
 				D8832A6B1CEDCDE0007B669A /* MainViewController.swift in Sources */,

@@ -18,6 +18,7 @@ class MainViewController: UIViewController, CLLocationManagerDelegate {
   override func viewDidLoad() {
     super.viewDidLoad()
     getUserLocation()
+    fetchWeatherAPI()
   }
   
   override func didReceiveMemoryWarning() {
@@ -35,6 +36,9 @@ class MainViewController: UIViewController, CLLocationManagerDelegate {
     if let userLocation = locationManager.location as CLLocation? {
       print(userLocation)
     }
+  }
+  
+  private func fetchWeatherAPI() {
   }
   
 }
