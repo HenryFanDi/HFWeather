@@ -7,6 +7,10 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="MainViewController" customModule="Weather" customModuleProvider="target">
             <connections>
+                <outlet property="cityLabel" destination="g9r-v9-zlM" id="hHG-Mi-Gma"/>
+                <outlet property="countryLabel" destination="Xua-Uu-naW" id="8bK-eN-tVK"/>
+                <outlet property="statusLabel" destination="Z0g-Cu-rDb" id="Jta-k2-ubi"/>
+                <outlet property="temperatureLabel" destination="4aa-9n-hAb" id="LeA-IS-Dxh"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -14,7 +18,63 @@
         <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
             <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-            <color key="backgroundColor" red="1" green="0.0" blue="0.50196081400000003" alpha="1" colorSpace="calibratedRGB"/>
+            <subviews>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="US" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Xua-Uu-naW" userLabel="Country Label">
+                    <rect key="frame" x="0.0" y="50" width="320" height="25"/>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                    <constraints>
+                        <constraint firstAttribute="height" priority="900" constant="25" id="WHL-o8-PcJ"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="system" weight="thin" pointSize="18"/>
+                    <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Cupertino" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="g9r-v9-zlM" userLabel="City Label">
+                    <rect key="frame" x="0.0" y="75" width="320" height="14"/>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                    <constraints>
+                        <constraint firstAttribute="height" priority="900" constant="14" id="BRP-da-lT7"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="system" weight="thin" pointSize="12"/>
+                    <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Mostly Sunny" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Z0g-Cu-rDb" userLabel="Status Label">
+                    <rect key="frame" x="0.0" y="190" width="320" height="18"/>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                    <constraints>
+                        <constraint firstAttribute="height" priority="900" constant="18" id="SCO-Wv-yuX"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="system" weight="thin" pointSize="14"/>
+                    <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="20" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4aa-9n-hAb" userLabel="Temperature Label">
+                    <rect key="frame" x="0.0" y="104" width="320" height="86"/>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                    <constraints>
+                        <constraint firstAttribute="height" priority="900" constant="86" id="wsL-00-Sfh"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="system" weight="thin" pointSize="60"/>
+                    <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <nil key="highlightedColor"/>
+                </label>
+            </subviews>
+            <color key="backgroundColor" red="0.40000000600000002" green="0.80000001190000003" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+            <constraints>
+                <constraint firstAttribute="trailing" secondItem="4aa-9n-hAb" secondAttribute="trailing" id="E9R-hO-HYe"/>
+                <constraint firstItem="g9r-v9-zlM" firstAttribute="top" secondItem="Xua-Uu-naW" secondAttribute="bottom" id="JDK-aY-4cZ"/>
+                <constraint firstAttribute="trailing" secondItem="Xua-Uu-naW" secondAttribute="trailing" id="Mx2-vh-7ie"/>
+                <constraint firstItem="4aa-9n-hAb" firstAttribute="top" secondItem="g9r-v9-zlM" secondAttribute="bottom" constant="15" id="Pqb-JU-vr3"/>
+                <constraint firstItem="Xua-Uu-naW" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="50" id="Vc2-vZ-DEG"/>
+                <constraint firstItem="Z0g-Cu-rDb" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="bLM-5l-vAi"/>
+                <constraint firstItem="Z0g-Cu-rDb" firstAttribute="top" secondItem="4aa-9n-hAb" secondAttribute="bottom" id="gap-Qh-usE"/>
+                <constraint firstItem="g9r-v9-zlM" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="idw-Ag-5eu"/>
+                <constraint firstAttribute="trailing" secondItem="Z0g-Cu-rDb" secondAttribute="trailing" id="m87-Dz-EZo"/>
+                <constraint firstAttribute="trailing" secondItem="g9r-v9-zlM" secondAttribute="trailing" id="nHa-IV-vhE"/>
+                <constraint firstItem="4aa-9n-hAb" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="nhW-ZE-FFB"/>
+                <constraint firstItem="Xua-Uu-naW" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="stJ-PU-kLT"/>
+            </constraints>
             <nil key="simulatedStatusBarMetrics"/>
             <nil key="simulatedTopBarMetrics"/>
             <nil key="simulatedBottomBarMetrics"/>

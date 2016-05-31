@@ -13,6 +13,11 @@ class MainViewController: UIViewController, CLLocationManagerDelegate {
   
   private let locationManager = CLLocationManager()
   
+  @IBOutlet weak var countryLabel: UILabel!
+  @IBOutlet weak var cityLabel: UILabel!
+  @IBOutlet weak var temperatureLabel: UILabel!
+  @IBOutlet weak var statusLabel: UILabel!
+  
   // MARK: Lifecycle
   
   override func viewDidLoad() {
@@ -40,8 +45,21 @@ class MainViewController: UIViewController, CLLocationManagerDelegate {
         "latitude": String(format: "%f", userLocation.coordinate.latitude),
         "longitude": String(format: "%f", userLocation.coordinate.longitude)
       ]
+      unowned let unownedSelf = self
       APIHelper.sharedInstance.fetchAPIDataWithAPIType(.WeatherAPI, parameters: parameters) { (result, statusCode, error) in
-        print(result)
+        let weather = result as? Dictionary <String, AnyObject>
+        if weather != nil {
+          unownedSelf.countryLabel.text = weather!["sys"]!["country"] as? String
+          unownedSelf.cityLabel.text = weather!["name"] as? String
+          unownedSelf.temperatureLabel.text = String(format: "%.0f", (weather!["main"]!["temp"]!)!.floatValue / 10.0)
+          
+          var mainlyStatusStr = (weather!["weather"] as! [Dictionary <String, AnyObject>]).first!["description"] as? String
+          mainlyStatusStr = mainlyStatusStr?.capitalizedStringWithLocale(NSLocale.currentLocale())
+          
+          var secondaryStatusStr = (weather!["weather"] as! [Dictionary <String, AnyObject>]).last!["description"] as? String
+          secondaryStatusStr = secondaryStatusStr?.capitalizedStringWithLocale(NSLocale.currentLocale())
+          unownedSelf.statusLabel.text = String(format: "%@ %@", mainlyStatusStr!, secondaryStatusStr!)
+        }
       }
     }
   }
