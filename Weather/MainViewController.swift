@@ -53,12 +53,16 @@ class MainViewController: UIViewController, CLLocationManagerDelegate {
           unownedSelf.cityLabel.text = weather!["name"] as? String
           unownedSelf.temperatureLabel.text = String(format: "%.0f", (weather!["main"]!["temp"]!)!.floatValue / 10.0)
           
-          var mainlyStatusStr = (weather!["weather"] as! [Dictionary <String, AnyObject>]).first!["description"] as? String
-          mainlyStatusStr = mainlyStatusStr?.capitalizedStringWithLocale(NSLocale.currentLocale())
-          
-          var secondaryStatusStr = (weather!["weather"] as! [Dictionary <String, AnyObject>]).last!["description"] as? String
-          secondaryStatusStr = secondaryStatusStr?.capitalizedStringWithLocale(NSLocale.currentLocale())
-          unownedSelf.statusLabel.text = String(format: "%@ %@", mainlyStatusStr!, secondaryStatusStr!)
+          var statusStr = ""
+          for dict in (weather!["weather"] as! [Dictionary <String, AnyObject>]) {
+            let model = WeatherModel.init(weatherDescription: dict["description"] as? String,
+                                          icon: dict["icon"] as? String,
+                                          weatherID: dict["id"] as? String,
+                                          main: dict["main"] as? String)
+            let str = model?.weatherDescription?.capitalizedStringWithLocale(NSLocale.currentLocale())
+            statusStr = statusStr.stringByAppendingString(String(format: "%@ ", str!))
+          }
+          unownedSelf.statusLabel.text = statusStr
         }
       }
     }
