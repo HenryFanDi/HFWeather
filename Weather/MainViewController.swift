@@ -8,8 +8,14 @@
 
 import UIKit
 import CoreLocation
+import Darwin
 
 class MainViewController: UIViewController, CLLocationManagerDelegate {
+  
+  private var colors = [] as [UIColor]
+  private let greenColor = UIColor.init(red: 130.0/255.0, green: 255.0/255.0, blue: 230.0/255.0, alpha: 1.0)
+  private let blueColor = UIColor.init(red: 102.0/255.0, green: 204.0/255.0, blue: 255.0/255.0, alpha: 1.0)
+  private let pinkColor = UIColor.init(red: 255.0/255.0, green: 210.0/255.0, blue: 250.0/255.0, alpha: 1.0)
   
   private let locationManager = CLLocationManager()
   
@@ -22,8 +28,7 @@ class MainViewController: UIViewController, CLLocationManagerDelegate {
   
   override func viewDidLoad() {
     super.viewDidLoad()
-    getUserLocation()
-    fetchWeatherAPI()
+    setupMainViewController()
   }
   
   override func didReceiveMemoryWarning() {
@@ -31,6 +36,12 @@ class MainViewController: UIViewController, CLLocationManagerDelegate {
   }
   
   // MARK: Private
+  
+  private func setupMainViewController() {
+    colors = [greenColor, blueColor, pinkColor]
+    getUserLocation()
+    fetchWeatherAPI()
+  }
   
   private func getUserLocation() {
     locationManager.delegate = self
@@ -63,8 +74,20 @@ class MainViewController: UIViewController, CLLocationManagerDelegate {
             statusStr = statusStr.stringByAppendingString(String(format: "%@ ", str!))
           }
           unownedSelf.statusLabel.text = statusStr
+          unownedSelf.transitBackgroundColorAnimation()
         }
       }
+    }
+  }
+  
+  private func transitBackgroundColorAnimation() {
+    unowned let unownedSelf = self
+    UIView.animateWithDuration(0.3) {
+      unownedSelf.view.backgroundColor = unownedSelf.colors[Int(arc4random_uniform(2))]
+      unownedSelf.countryLabel.textColor = UIColor.whiteColor()
+      unownedSelf.cityLabel.textColor = UIColor.whiteColor()
+      unownedSelf.temperatureLabel.textColor = UIColor.whiteColor()
+      unownedSelf.statusLabel.textColor = UIColor.whiteColor()
     }
   }
   
